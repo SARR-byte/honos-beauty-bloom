@@ -28,8 +28,8 @@ const Index: React.FC = () => {
       <section className="relative">
         <div className="h-[60vh] md:h-[70vh] bg-gradient-to-r from-honos-purple to-honos-pink flex items-center justify-center">
           <div className="text-center px-4">
-            <h1 className="text-4xl md:text-6xl font-serif font-medium mb-4">Beauty that empowers</h1>
-            <p className="text-lg md:text-xl mb-6 max-w-2xl mx-auto">Discover our collection of luxury beauty products crafted for the modern woman.</p>
+            <h1 className="text-4xl md:text-6xl font-serif font-medium mb-4">Free Indulgence</h1>
+            <p className="text-lg md:text-xl mb-6 max-w-2xl mx-auto">Beauty and Wellness for Everyone</p>
             <Link to="/shop">
               <Button size="lg" className="font-medium">Shop Now</Button>
             </Link>
