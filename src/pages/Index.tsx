@@ -65,9 +65,15 @@ const Index: React.FC = () => {
                     />
                   </div>
                   <div className="p-2">
-                    <p className="text-xs text-muted-foreground">{product.category}</p>
-                    <h3 className="font-medium text-sm mt-0.5 line-clamp-1">{product.name}</h3>
-                    <p className="font-medium text-sm mt-0.5">{product.price}</p>
+                    <p className="text-xs text-muted-foreground">
+                      {product.category}
+                    </p>
+                    <h3 className="font-medium text-sm mt-1">
+                      {product.name}
+                    </h3>
+                    <p className="font-medium text-sm mt-1">
+                      {product.price}
+                    </p>
                   </div>
                 </div>
               </CarouselItem>
@@ -99,6 +105,11 @@ const Index: React.FC = () => {
                   alt={category.name}
                   className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300"
                 />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-sm font-medium bg-background/60 px-3 py-1.5 rounded-md">
+                    {category.name}
+                  </span>
+                </div>
               </div>
             </Link>
           ))}
