@@ -9,9 +9,11 @@ const Navbar: React.FC = () => {
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur">
       <div className="flex h-14 items-center px-4">
         <Link to="/" className="mr-auto">
-          <h1 className="text-lg font-serif font-medium">
-            <span className="text-accent">Honos</span> Beauty
-          </h1>
+          <img 
+            src="/lovable-uploads/87900dde-307b-4675-a2c2-d9cc45d1e19a.png" 
+            alt="Honos Beauty" 
+            className="h-8" 
+          />
         </Link>
         
         <div className="flex items-center space-x-2">
