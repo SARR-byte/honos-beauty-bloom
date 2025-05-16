@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Home, ShoppingBag, Percent, User, Gallery } from "lucide-react";
+import { Home, ShoppingBag, Percent, User, GalleryHorizontal } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const BottomNav: React.FC = () => {
@@ -12,7 +12,7 @@ const BottomNav: React.FC = () => {
     { path: "/", label: "Home", icon: Home },
     { path: "/shop", label: "Shop", icon: ShoppingBag },
     { path: "/offers", label: "Offers", icon: Percent },
-    { path: "/gallery", label: "Gallery", icon: Gallery },
+    { path: "/gallery", label: "Gallery", icon: GalleryHorizontal },
     { path: "/profile", label: "Profile", icon: User },
   ];
 
