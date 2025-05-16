@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,20 +5,20 @@ import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const Index: React.FC = () => {
-  // Mock data for featured products
+  // Mock data for featured products - keeping the structure but removing text
   const featuredProducts = [
-    { id: 1, name: "Luminous Foundation", price: "$42", category: "Makeup", image: "https://placehold.co/300x400/FDE1D3/403E43?text=Foundation" },
-    { id: 2, name: "Hydrating Serum", price: "$58", category: "Skincare", image: "https://placehold.co/300x400/E5DEFF/403E43?text=Serum" },
-    { id: 3, name: "Volumizing Mascara", price: "$26", category: "Makeup", image: "https://placehold.co/300x400/F6F6F7/403E43?text=Mascara" },
-    { id: 4, name: "Lip Enhancer", price: "$34", category: "Makeup", image: "https://placehold.co/300x400/FDE1D3/403E43?text=Lip+Care" },
+    { id: 1, name: "Luminous Foundation", price: "$42", category: "Makeup", image: "https://placehold.co/300x400/FDE1D3/403E43" },
+    { id: 2, name: "Hydrating Serum", price: "$58", category: "Skincare", image: "https://placehold.co/300x400/E5DEFF/403E43" },
+    { id: 3, name: "Volumizing Mascara", price: "$26", category: "Makeup", image: "https://placehold.co/300x400/F6F6F7/403E43" },
+    { id: 4, name: "Lip Enhancer", price: "$34", category: "Makeup", image: "https://placehold.co/300x400/FDE1D3/403E43" },
   ];
 
-  // Mock data for trending categories
+  // Mock data for trending categories - keeping structure but removing text
   const categories = [
-    { id: 1, name: "Makeup", image: "https://placehold.co/200x200/FDE1D3/403E43?text=Makeup" },
-    { id: 2, name: "Skincare", image: "https://placehold.co/200x200/E5DEFF/403E43?text=Skincare" },
-    { id: 3, name: "Fragrance", image: "https://placehold.co/200x200/F6F6F7/403E43?text=Fragrance" },
-    { id: 4, name: "Hair", image: "https://placehold.co/200x200/FDE1D3/403E43?text=Hair" },
+    { id: 1, name: "", image: "https://placehold.co/200x200/FDE1D3/403E43" },
+    { id: 2, name: "", image: "https://placehold.co/200x200/E5DEFF/403E43" },
+    { id: 3, name: "", image: "https://placehold.co/200x200/F6F6F7/403E43" },
+    { id: 4, name: "", image: "https://placehold.co/200x200/FDE1D3/403E43" },
   ];
 
   return (
@@ -60,19 +59,20 @@ const Index: React.FC = () => {
                   <div className="h-[160px]">
                     <img
                       src={product.image}
-                      alt={product.name}
+                      alt=""
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="p-2">
+                    {/* Removed all text content from product boxes */}
                     <p className="text-xs text-muted-foreground">
-                      {product.category}
+                      &nbsp;
                     </p>
                     <h3 className="font-medium text-sm mt-1">
-                      {product.name}
+                      &nbsp;
                     </h3>
                     <p className="font-medium text-sm mt-1">
-                      {product.price}
+                      &nbsp;
                     </p>
                   </div>
                 </div>
@@ -102,13 +102,11 @@ const Index: React.FC = () => {
               <div className="relative overflow-hidden rounded-lg">
                 <img
                   src={category.image}
-                  alt={category.name}
+                  alt=""
                   className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-sm font-medium bg-background/60 px-3 py-1.5 rounded-md">
-                    {category.name}
-                  </span>
+                  {/* Removed all text content from category boxes */}
                 </div>
               </div>
             </Link>
