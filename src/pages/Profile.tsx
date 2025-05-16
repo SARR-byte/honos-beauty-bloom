@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { ShoppingBag, Heart, Settings, User } from "lucide-react";
 
 const Profile = () => {
@@ -44,229 +46,172 @@ const Profile = () => {
   ];
 
   return (
-    <div className="honos-container pb-16 md:pb-0 animate-fade-in">
+    <div className="pb-16 md:pb-0 px-4 py-6 animate-fade-in">
       {/* Login Status */}
-      <div className="mb-8">
+      <div className="mb-6">
         <div className="flex items-center gap-4">
-          <Avatar className="h-16 w-16">
-            <AvatarFallback className="bg-muted">HB</AvatarFallback>
+          <Avatar className="h-14 w-14 bg-gray-100">
+            <AvatarFallback className="text-gray-600">HB</AvatarFallback>
           </Avatar>
           <div>
             <h1 className="text-2xl font-medium">Welcome Back</h1>
-            <p className="text-muted-foreground">Please sign in to view your profile</p>
+            <p className="text-muted-foreground text-sm">Please sign in to view your profile</p>
           </div>
         </div>
       </div>
       
-      <div className="grid gap-6">
-        <Card>
-          <CardContent className="p-6">
-            <h2 className="text-xl font-medium mb-4">Sign In</h2>
-            <form className="space-y-4">
-              <div>
-                <label htmlFor="email" className="block text-sm mb-1">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full p-2 border rounded-md"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-              <div>
-                <label htmlFor="password" className="block text-sm mb-1">Password</label>
-                <input
-                  type="password"
-                  id="password"
-                  className="w-full p-2 border rounded-md"
-                  placeholder="********"
-                />
-              </div>
-              <div className="flex justify-between items-center">
-                <label className="flex items-center gap-2 text-sm">
-                  <input type="checkbox" />
-                  <span>Remember me</span>
-                </label>
-                <a href="#" className="text-sm text-accent hover:underline">Forgot password?</a>
-              </div>
-              <Button className="w-full">Sign In</Button>
-            </form>
-            
-            <Separator className="my-6" />
-            
-            <div className="text-center">
-              <p className="mb-4">Don't have an account?</p>
-              <Button variant="outline" className="w-full">Create Account</Button>
+      <Card className="border rounded-lg shadow-sm mb-6">
+        <CardContent className="p-5">
+          <h2 className="text-xl font-medium mb-4">Sign In</h2>
+          <form className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                type="email"
+                id="email"
+                placeholder="your.email@example.com"
+              />
             </div>
-          </CardContent>
-        </Card>
-        
-        {/* Demo Content - Would normally show after login */}
-        <div className="mt-8">
-          <h2 className="text-xl font-serif mb-6">Demo Content</h2>
+            <div className="space-y-2">
+              <Label htmlFor="password">Password</Label>
+              <Input
+                type="password"
+                id="password"
+                placeholder="••••••••"
+              />
+            </div>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center gap-2">
+                <input type="checkbox" id="remember" className="rounded border-gray-300" />
+                <label htmlFor="remember" className="text-sm">Remember me</label>
+              </div>
+              <a href="#" className="text-sm text-accent hover:underline">Forgot password?</a>
+            </div>
+            <Button className="w-full bg-accent hover:bg-accent/90">Sign In</Button>
+          </form>
           
-          <Tabs defaultValue="orders" className="w-full">
-            <TabsList className="w-full md:w-auto mb-6">
-              <TabsTrigger value="orders" className="flex items-center gap-2">
+          <Separator className="my-5" />
+          
+          <div className="text-center">
+            <p className="mb-3 text-sm">Don't have an account?</p>
+            <Button variant="outline" className="w-full">Create Account</Button>
+          </div>
+        </CardContent>
+      </Card>
+      
+      {/* Demo Content - Would normally show after login */}
+      <div>
+        <h2 className="text-xl font-serif mb-4">Demo Content</h2>
+        
+        <Tabs defaultValue="orders" className="w-full">
+          <TabsList className="grid grid-cols-3 mb-4 h-auto">
+            <TabsTrigger value="orders" className="py-2 px-1">
+              <div className="flex flex-col items-center gap-1 text-xs">
                 <ShoppingBag className="h-4 w-4" />
                 <span>Orders</span>
-              </TabsTrigger>
-              <TabsTrigger value="favorites" className="flex items-center gap-2">
+              </div>
+            </TabsTrigger>
+            <TabsTrigger value="favorites" className="py-2 px-1">
+              <div className="flex flex-col items-center gap-1 text-xs">
                 <Heart className="h-4 w-4" />
                 <span>Favorites</span>
-              </TabsTrigger>
-              <TabsTrigger value="account" className="flex items-center gap-2">
+              </div>
+            </TabsTrigger>
+            <TabsTrigger value="account" className="py-2 px-1">
+              <div className="flex flex-col items-center gap-1 text-xs">
                 <User className="h-4 w-4" />
                 <span>Account</span>
-              </TabsTrigger>
-              <TabsTrigger value="settings" className="flex items-center gap-2">
-                <Settings className="h-4 w-4" />
-                <span>Settings</span>
-              </TabsTrigger>
-            </TabsList>
-            
-            <TabsContent value="orders" className="mt-0">
-              <div className="space-y-6">
-                {orders.map((order) => (
-                  <Card key={order.id}>
-                    <CardContent className="p-6">
-                      <div className="flex justify-between items-center mb-4">
-                        <div>
-                          <h3 className="font-medium">{order.id}</h3>
-                          <p className="text-sm text-muted-foreground">{order.date}</p>
-                        </div>
-                        <div className="text-right">
-                          <p className="font-medium">{order.total}</p>
-                          <p className="text-sm font-medium text-green-600">{order.status}</p>
-                        </div>
-                      </div>
-                      
-                      <Separator className="my-4" />
-                      
-                      <div className="space-y-2">
-                        {order.items.map((item, index) => (
-                          <div key={index} className="flex justify-between text-sm">
-                            <span>{item.name} {item.quantity ? `x${item.quantity}` : ""}</span>
-                            <span>{item.price}</span>
-                          </div>
-                        ))}
-                      </div>
-                      
-                      <div className="mt-4 flex justify-end">
-                        <Button variant="outline" size="sm">Order Details</Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
               </div>
-            </TabsContent>
-            
-            <TabsContent value="favorites" className="mt-0">
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {favorites.map((product) => (
-                  <Card key={product.id} className="overflow-hidden border-none shadow-sm">
-                    <CardContent className="p-0">
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="w-full aspect-[3/4] object-cover"
-                      />
-                      <div className="p-4">
-                        <h3 className="font-medium mt-1">{product.name}</h3>
-                        <p className="font-medium mt-1">{product.price}</p>
-                        <Button variant="outline" size="sm" className="mt-2 w-full">
-                          Add to Cart
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </TabsContent>
-            
-            <TabsContent value="account" className="mt-0">
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-medium mb-4">Account Information</h3>
-                  <form className="space-y-4">
-                    <div className="grid md:grid-cols-2 gap-4">
+            </TabsTrigger>
+          </TabsList>
+          
+          <TabsContent value="orders" className="mt-0">
+            <div className="space-y-4">
+              {orders.map((order) => (
+                <Card key={order.id} className="overflow-hidden">
+                  <CardContent className="p-4">
+                    <div className="flex justify-between items-center mb-2">
                       <div>
-                        <label htmlFor="firstName" className="block text-sm mb-1">First Name</label>
-                        <input
-                          type="text"
-                          id="firstName"
-                          className="w-full p-2 border rounded-md"
-                        />
+                        <h3 className="font-medium text-sm">{order.id}</h3>
+                        <p className="text-xs text-muted-foreground">{order.date}</p>
                       </div>
-                      <div>
-                        <label htmlFor="lastName" className="block text-sm mb-1">Last Name</label>
-                        <input
-                          type="text"
-                          id="lastName"
-                          className="w-full p-2 border rounded-md"
-                        />
+                      <div className="text-right">
+                        <p className="font-medium text-sm">{order.total}</p>
+                        <p className="text-xs font-medium text-green-600">{order.status}</p>
                       </div>
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm mb-1">Email</label>
-                      <input
-                        type="email"
-                        id="profile-email"
-                        className="w-full p-2 border rounded-md"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="phone" className="block text-sm mb-1">Phone</label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        className="w-full p-2 border rounded-md"
-                      />
-                    </div>
-                    <Button>Save Changes</Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </TabsContent>
-            
-            <TabsContent value="settings" className="mt-0">
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-medium mb-4">Preferences</h3>
-                  
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="font-medium">Email Notifications</p>
-                        <p className="text-sm text-muted-foreground">Receive emails about new products and offers</p>
-                      </div>
-                      <label className="relative inline-flex items-center cursor-pointer">
-                        <input type="checkbox" value="" className="sr-only peer" checked />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-accent/30 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-accent"></div>
-                      </label>
                     </div>
                     
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="font-medium">SMS Updates</p>
-                        <p className="text-sm text-muted-foreground">Get text messages for order updates</p>
-                      </div>
-                      <label className="relative inline-flex items-center cursor-pointer">
-                        <input type="checkbox" value="" className="sr-only peer" />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-accent/30 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-accent"></div>
-                      </label>
-                    </div>
+                    <Separator className="my-3" />
                     
-                    <Separator />
-                    
-                    <div>
-                      <Button variant="destructive">Sign Out</Button>
+                    <div className="space-y-1">
+                      {order.items.map((item, index) => (
+                        <div key={index} className="flex justify-between text-xs">
+                          <span>{item.name} {item.quantity ? `x${item.quantity}` : ""}</span>
+                          <span>{item.price}</span>
+                        </div>
+                      ))}
                     </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
+          
+          <TabsContent value="favorites" className="mt-0">
+            <div className="grid grid-cols-2 gap-3">
+              {favorites.map((product) => (
+                <Card key={product.id} className="overflow-hidden border-none shadow-sm">
+                  <CardContent className="p-0">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full aspect-[3/4] object-cover"
+                    />
+                    <div className="p-3">
+                      <h3 className="font-medium text-sm">{product.name}</h3>
+                      <p className="font-medium text-sm">{product.price}</p>
+                      <Button variant="outline" size="sm" className="mt-2 w-full text-xs">
+                        Add to Cart
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
+          
+          <TabsContent value="account" className="mt-0">
+            <Card>
+              <CardContent className="p-4">
+                <h3 className="text-base font-medium mb-3">Account Information</h3>
+                <form className="space-y-3">
+                  <div>
+                    <Label htmlFor="firstName" className="text-xs">First Name</Label>
+                    <Input
+                      type="text"
+                      id="firstName"
+                    />
                   </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
-          </Tabs>
-        </div>
+                  <div>
+                    <Label htmlFor="lastName" className="text-xs">Last Name</Label>
+                    <Input
+                      type="text"
+                      id="lastName"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="profile-email" className="text-xs">Email</Label>
+                    <Input
+                      type="email"
+                      id="profile-email"
+                    />
+                  </div>
+                  <Button size="sm">Save Changes</Button>
+                </form>
+              </CardContent>
+            </Card>
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );
