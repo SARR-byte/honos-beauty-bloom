@@ -46,26 +46,34 @@ const Index: React.FC = () => {
           </Link>
         </div>
 
-        <div className="flex overflow-x-auto gap-3 pb-4 scrollbar-none">
-          {featuredProducts.map((product) => (
-            <div key={product.id} className="min-w-[120px] flex-shrink-0">
-              <div className="rounded-lg overflow-hidden bg-background">
-                <div className="h-[160px]">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover"
-                  />
+        <Carousel
+          opts={{
+            align: "start",
+            loop: false,
+          }}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-2">
+            {featuredProducts.map((product) => (
+              <CarouselItem key={product.id} className="pl-2 basis-[140px] md:basis-1/4">
+                <div className="rounded-lg overflow-hidden bg-background">
+                  <div className="h-[160px]">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-2">
+                    <p className="text-xs text-muted-foreground">{product.category}</p>
+                    <h3 className="font-medium text-sm mt-0.5 line-clamp-1">{product.name}</h3>
+                    <p className="font-medium text-sm mt-0.5">{product.price}</p>
+                  </div>
                 </div>
-                <div className="p-2">
-                  <p className="text-xs text-muted-foreground">{product.category}</p>
-                  <h3 className="font-medium text-sm mt-0.5 line-clamp-1">{product.name}</h3>
-                  <p className="font-medium text-sm mt-0.5">{product.price}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </section>
 
       {/* Current Offer Banner */}
