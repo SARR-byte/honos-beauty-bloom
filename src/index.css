@@ -106,3 +106,14 @@
     @apply px-4 py-4 mx-auto max-w-7xl sm:px-6 lg:px-8;
   }
 }
+
+@layer utilities {
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}

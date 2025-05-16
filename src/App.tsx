@@ -13,6 +13,7 @@ import Stores from "./pages/Stores";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/layout/Navbar";
 import BottomNav from "./components/layout/BottomNav";
+import MobileFrame from "./components/layout/MobileFrame";
 
 const queryClient = new QueryClient();
 
@@ -22,19 +23,21 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Navbar />
-        <main>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/offers" element={<Offers />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/stores" element={<Stores />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <BottomNav />
+        <MobileFrame>
+          <Navbar />
+          <main>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/offers" element={<Offers />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/stores" element={<Stores />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <BottomNav />
+        </MobileFrame>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
