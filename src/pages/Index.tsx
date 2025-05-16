@@ -38,81 +38,51 @@ const Index: React.FC = () => {
       </section>
 
       {/* Featured Products */}
-      <section className="honos-container mt-12">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl md:text-3xl font-serif">Featured Products</h2>
+      <section className="px-4 mt-8">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-2xl font-serif">Featured Products</h2>
           <Link to="/shop" className="text-sm font-medium text-accent hover:underline">
             View All
           </Link>
         </div>
 
-        <div className="md:hidden">
-          <Carousel
-            opts={{ align: "start" }}
-            className="w-full"
-          >
-            <CarouselContent>
-              {featuredProducts.map((product) => (
-                <CarouselItem key={product.id} className="basis-[70%] sm:basis-1/2">
-                  <div className="p-1">
-                    <Card className="overflow-hidden border-none shadow-sm">
-                      <CardContent className="p-0">
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          className="w-full h-64 object-cover"
-                        />
-                        <div className="p-4">
-                          <p className="text-sm text-muted-foreground">{product.category}</p>
-                          <h3 className="font-medium mt-1">{product.name}</h3>
-                          <p className="font-medium mt-1">{product.price}</p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
-          </Carousel>
-        </div>
-
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="flex overflow-x-auto gap-3 pb-4 scrollbar-none">
           {featuredProducts.map((product) => (
-            <Card key={product.id} className="overflow-hidden border-none shadow-sm">
-              <CardContent className="p-0">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-64 object-cover"
-                />
-                <div className="p-4">
-                  <p className="text-sm text-muted-foreground">{product.category}</p>
-                  <h3 className="font-medium mt-1">{product.name}</h3>
-                  <p className="font-medium mt-1">{product.price}</p>
+            <div key={product.id} className="min-w-[120px] flex-shrink-0">
+              <div className="rounded-lg overflow-hidden bg-background">
+                <div className="h-[160px]">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-              </CardContent>
-            </Card>
+                <div className="p-2">
+                  <p className="text-xs text-muted-foreground">{product.category}</p>
+                  <h3 className="font-medium text-sm mt-0.5 line-clamp-1">{product.name}</h3>
+                  <p className="font-medium text-sm mt-0.5">{product.price}</p>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </section>
 
       {/* Current Offer Banner */}
-      <section className="honos-container mt-12">
-        <div className="bg-honos-neutral rounded-xl p-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-serif mb-4">Limited Time Offer</h2>
-          <p className="mb-6">Get 20% off your first purchase with code <span className="font-medium bg-accent/10 px-2 py-1 rounded">WELCOME</span></p>
+      <section className="px-4 mt-8">
+        <div className="bg-honos-neutral rounded-xl p-6 text-center">
+          <h2 className="text-xl md:text-2xl font-serif mb-2">Limited Time Offer</h2>
+          <p className="mb-4 text-sm">Get 20% off your first purchase with code <span className="font-medium bg-accent/10 px-2 py-1 rounded">WELCOME</span></p>
           <Link to="/offers">
-            <Button>View Offers</Button>
+            <Button size="sm">View Offers</Button>
           </Link>
         </div>
       </section>
 
       {/* Categories */}
-      <section className="honos-container mt-12 mb-12">
-        <h2 className="text-2xl md:text-3xl font-serif mb-6">Explore Categories</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <section className="px-4 mt-8 mb-12">
+        <h2 className="text-2xl font-serif mb-4">Explore Categories</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {categories.map((category) => (
             <Link key={category.id} to="/shop" className="group">
               <div className="relative overflow-hidden rounded-lg">
@@ -121,7 +91,6 @@ const Index: React.FC = () => {
                   alt={category.name}
                   className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                {/* Removed all text from the category boxes */}
               </div>
             </Link>
           ))}

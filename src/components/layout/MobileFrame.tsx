@@ -13,7 +13,7 @@ const MobileFrame: React.FC<MobileFrameProps> = ({ children }) => {
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1/3 h-6 bg-gray-800 rounded-b-lg z-50"></div>
         
         {/* Content Container */}
-        <div className="h-full overflow-y-auto scrollbar-none">
+        <div className="h-full overflow-y-auto pb-16 scrollbar-none">
           {children}
         </div>
       </div>
