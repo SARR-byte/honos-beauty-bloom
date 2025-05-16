@@ -121,9 +121,7 @@ const Index: React.FC = () => {
                   alt={category.name}
                   className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <h3 className="text-honos-dark text-xl font-medium">{category.name}</h3>
-                </div>
+                {/* Removed all text from the category boxes */}
               </div>
             </Link>
           ))}
