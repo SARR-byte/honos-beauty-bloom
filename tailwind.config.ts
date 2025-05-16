@@ -68,7 +68,8 @@ export default {
 					purple: '#E5DEFF',
 					neutral: '#F6F6F7',
 					dark: '#403E43',
-					accent: '#D946EF'
+					accent: '#071D49',
+					blue: '#071D49'
 				}
 			},
 			borderRadius: {
